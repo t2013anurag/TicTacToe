@@ -9,6 +9,13 @@ package tictactoe;
  *
  * @author anurag
  */
-public class TicTacToe {
+public class TicTacToeApplication {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+    }
     
 }
