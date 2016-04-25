@@ -13,13 +13,13 @@ public class TicTacToe {
     protected char[] board;
     protected char userMarker;
     protected char aiMarker;
-    protected char winnner;
+    protected char winner;
     protected char currentMarker;
 
     public TicTacToe(char playerToken, char aiToken){
         this.userMarker = playerToken;
         this.aiMarker = aiToken;
-        this.winnner = '-';
+        this.winner = '-';
         this.board = setBoard();
     }
 
@@ -76,7 +76,60 @@ public class TicTacToe {
         System.out.println();
     }
     
-//    public boolean isThereAWinner(){
-//        
-//    }
+    public boolean isThereAWinner(){
+        // board[4] != '-'; is checked so that conditions doesn't hold when the game begins
+        // as at the beginning rightDi() || leftDi() || middleRow() || secondCol() will be
+        // true, so we need to avoid it by checking the null or dashed value in the middle
+        // as all the 4 methods have center column ( so checking if centre is not dash)
+        // obviously states for others also not to be dashed;
+        
+        //Simple terms : winner can't be dash character
+        boolean diagonalsAndMiddles = rightDi() || leftDi() || middleRow() || secondCol() && board[4] != '-';
+        boolean topAndFirst = topRow() || firstCol() && board[0] != '-'; //as 1 is present in both methods
+        boolean bottomAndThird = bottomRow() || thirdCol() && board[8] != '-';
+        if(diagonalsAndMiddles) {
+            this.winner = board[4]; // winner is in position 4
+        }
+        if(topAndFirst) {
+            this.winner = board[0];
+        }
+        if(bottomAndThird) {
+            this.winner = board[8];
+        }
+        return diagonalsAndMiddles || topAndFirst || bottomAndThird; // returns true if winner
+    }
+    
+    public boolean topRow() {
+        return board[0] == board[1] && board[1] == board[2];
+    }
+    
+    public boolean middleRow() {
+        return board[3] == board[4] && board[4] == board[5];
+    }
+    
+    public boolean bottomRow() {
+        return board[6] == board[7] && board[7] == board[8];
+    }
+    
+    public boolean firstCol() {
+        return board[0] == board[3] && board[3] == board[6];
+    }
+     
+    public boolean secondCol() {
+        return board[1] == board[4] && board[4] == board[7];
+    }
+    
+    public boolean thirdCol() {
+        return board[2] == board[5] && board[5] == board[8];
+    }
+    
+    public boolean rightDi() {
+        return board[0] == board[4] && board[4] == board[8];
+    }
+     
+    public boolean leftDi() {
+        return board[2] == board[4] && board[4] == board[6];
+    }
+    
+    
 }
