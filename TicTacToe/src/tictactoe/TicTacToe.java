@@ -64,7 +64,7 @@ public class TicTacToe {
         System.out.println();
     }
     
-    public void printIndexBoard() {
+    public static void printIndexBoard() {
         System.out.println();
         for(int i = 0 ; i < board.length; i++) {
             if(i % 3 == 0 && i != 0) {
@@ -131,5 +131,23 @@ public class TicTacToe {
         return board[2] == board[4] && board[4] == board[6];
     }
     
+    public boolean isTheBoardFilled() {
+        for(int i = 0; i < board.length; i++) {
+            if(board[i] == '-') {
+                return false;
+            }
+        }
+        return true;
+    }
     
+    public String gameOver() {
+        boolean didSomeoneWin = isThereAWinner();
+        if(didSomeoneWin) {
+            return "We had a winner! The winner is " + this.winner;
+        } else if(isTheBoardFilled()) {
+            return "Draw : Game Over!";
+        } else {
+            return "Game not over";
+        }
+    }
 }
