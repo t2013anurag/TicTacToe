@@ -14,7 +14,7 @@ import java.util.Random;
  */
 class AI {
     
-    public int pickSlot(TicTacToe game) {
+    public int pickSpot(TicTacToe game) {
         ArrayList<Integer> choices = new ArrayList();
         for(int i = 0; i < 9; i++) {
             if(game.board[i] == '-') {
