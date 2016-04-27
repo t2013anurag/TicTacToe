@@ -25,7 +25,7 @@ public class TicTacToe {
     }
 
     // Making the setBoard method static as it just initializes the board to
-    // board;
+    // empty board;
     public static char[] setBoard() {
         char[] board = new char[9];
         for(int i = 0; i < board.length; i++)
@@ -132,7 +132,7 @@ public class TicTacToe {
         return board[2] == board[4] && board[4] == board[6];
     }
     
-    public boolean isTheBoardFilled() {
+    public boolean isTheBoardFilled() { // Checking if board is filled
         for(int i = 0; i < board.length; i++) {
             if(board[i] == '-') {
                 return false;
@@ -146,7 +146,7 @@ public class TicTacToe {
         if(didSomeoneWin) {
             return "We had a winner! The winner is " + this.winner;
         } else if(isTheBoardFilled()) {
-            return "Draw : Game Over!";
+            return "Draw : Game Over! Better luck next time!!";
         } else {
             return "gameNotOver";
         }
