@@ -19,7 +19,7 @@ public class TicTacToeApplication {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         boolean doYouWantToPlay = true;
-        // Getting inputs
+        // Getting inputs || Single character
         while(doYouWantToPlay) {
             System.out.println("Welcome to Tic Tac Toe! \n Please pick your character and mine too");
             System.out.println("Enter a character you like");
@@ -49,7 +49,7 @@ public class TicTacToeApplication {
                     // it's the AI turn
                     System.out.println("It's my turn!");
                     // Getting the spot for AI
-                    int aiSpot = ai.pickSpot(game);
+                    int aiSpot = ai.pickSpot(game);// picking ai spot from it's class
                     game.playTurn(aiSpot);
                     System.out.println("I picked " + aiSpot);
                 }
@@ -64,7 +64,7 @@ public class TicTacToeApplication {
             // Setting up new game as per users request
             System.out.println("Enter y to continue or anything else to exit");
             char response = sc.next().charAt(0);
-            doYouWantToPlay = (response == 'y');
+            doYouWantToPlay = (response == 'y'); // continue until 'y'
             System.out.println();
         }
     }   
