@@ -13,7 +13,7 @@ import java.util.Random;
  * @author anurag
  */
 class AI {
-    
+    // Chooses a random slot at present
     public int pickSpot(TicTacToe game) {
         ArrayList<Integer> choices = new ArrayList();
         for(int i = 0; i < 9; i++) {
@@ -25,7 +25,4 @@ class AI {
         int choice = choices.get(Math.abs(rand.nextInt() % choices.size()));
         return choice;
     }
-    
-    
-    
 }
